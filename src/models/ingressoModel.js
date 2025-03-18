@@ -20,7 +20,7 @@ const createIngresso = async (evento, local, data_evento, categoria, preco, quan
 
 const updateIngresso = async (id, evento, local, data_evento, categoria, preco, quantidade_disponivel) => {
     const result = await pool.query(
-        "UPDATE ingresso SET evento = $1, local = $2, data_evento = $3, categoria = $4, preco = $5, quantidade_disponivel = $6 WHERE id = $7 RETURNING *",
+        "UPDATE ingressos SET evento = $1, local = $2, data_evento = $3, categoria = $4, preco = $5, quantidade_disponivel = $6 WHERE id = $7 RETURNING *",
         [evento, local, data_evento, categoria, preco, quantidade_disponivel, id]
     );
     return result.rows[0];
